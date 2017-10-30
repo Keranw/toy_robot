@@ -33,7 +33,7 @@ class Robot
 
   def left
     if !@face_to.empty?
-
+      # @directions[-1] == @directions[3]
       @face_to = @directions[@directions.index(@face_to) - 1]
     end
   end
@@ -46,7 +46,7 @@ class Robot
 
   def report
     if !@face_to.empty?
-      puts @position[0].to_s + "," + @position[1].to_s + "," + @face_to
+      puts @position[0].to_s + "," + @position[1].to_s + "," + @face_to.upcase
     end
   end
 

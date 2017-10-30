@@ -33,6 +33,15 @@ describe Robot do
   end
 
   describe "#place" do
+    it "place a robot object to a new point" do
+      @robot.place(1, 1, "north")
+      @robot.place(2, 2, "south")
+      expect(@robot.position).to eq([2, 2])
+      expect(@robot.face_to).to eq("south")
+    end
+  end
+
+  describe "#place" do
     it "won't place a robot object when x is smaller than 0" do
       @robot.place(-1, 1, "north")
       expect(@robot.position).to eq([0, 0])
@@ -195,7 +204,7 @@ describe Robot do
   describe "#report" do
     it "report current states when it is allowed" do
       @robot.place(0, 0, "west")
-      expect { @robot.report }.to output("0,0,west\n").to_stdout
+      expect { @robot.report }.to output("0,0,WEST\n").to_stdout
     end
   end
 end
